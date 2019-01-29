@@ -28,13 +28,23 @@ Below is an example of creating a simple PDF from a view / blade file.
 ```sh
 <?php
 
+namespace App\Http\Controllers;
+
 use ChromePDF;
 
-public function show()
-{
-    return ChromePDF::loadView('invoice')
-        ->a4()
-        ->landscape()
-        ->download();
+class InvoicesController {
+
+    /**
+     * Download a PDF version of the invoice.
+     *
+     * @return void
+     */
+    public function show()
+    {
+        ChromePDF::loadView('invoice')
+            ->a4()
+            ->landscape()
+            ->download();
+    }
 }
 ```
