@@ -8,14 +8,15 @@ composer require chrisbraybrooke/laravel-chrome-pdf
 ## Setup:
 **Laravel >=5.5**
 
-Laravel 5.5 and above uses package autodiscovery so you are **All Done!**. Skip to [usage](#usage)
+Laravel 5.5 and above uses package autodiscovery so you are **all done!**. Skip to [Usage](#usage).
 
 **Laravel 5.5<**
 
-If you are using Laravel 5.4 or below, you will have to manually register the package. After updating composer, add the ServiceProvider to the providers array in config/app.php
+If you are using Laravel 5.4 or below, you will have to manually register the package. After updating composer, add the ServiceProvider to the providers array in `config/app.php`.
 ```php
 ChrisBraybrooke\LaravelChromePdf\ServiceProvider::class,
 ```
+
 And optionally add the Facade.
 ```php
 'ChromePDF' => ChrisBraybrooke\LaravelChromePdf\ChromePDF::class,
@@ -23,11 +24,12 @@ And optionally add the Facade.
 
 ## Usage:
 
-Below is an example of creating a simple PDF from a view / blade file.
+Below is an example of creating a simple PDF from a blade file.
 
 ```php
 namespace App\Http\Controllers;
 
+use App\Invoice;
 use ChromePDF;
 
 class InvoicesController {
@@ -37,10 +39,11 @@ class InvoicesController {
      *
      * @return void
      */
-    public function show()
+    public function show(Invoice $invoice)
     {
-        ChromePDF::loadView('invoice')
-            ->a4()
+        // Load resources/views/invoice.blade.php
+        ChromePDF::loadView('invoice', ['invoice' => $invoice])
+            ->size('a4')
             ->landscape()
             ->download();
     }
@@ -51,22 +54,24 @@ class InvoicesController {
 
 **There are several methods of outputting the PDF.**
 
-Of course `download`
+Of course `download` is available.
 
 ```php
-ChromePDF::loadView('invoice')->download("invoice-{$ref}.pdf");
+ChromePDF::loadView('invoice', ['invoice' => $invoice])->download("invoice-{$ref}.pdf");
 ```
+
 
 Use `inline` to show the PDF inline in the browser.
 
 ```php
-ChromePDF::loadView('invoice')->inline();
+ChromePDF::loadView('invoice', ['invoice' => $invoice])->inline();
 ```
+
 
 Or `save` to save the file to the filesystem. The first argument is the filename / path - and the second is the disk to be used.
 
 ```php
-ChromePDF::loadView('invoice')->save("invoice-{$ref}.pdf", 's3');
+ChromePDF::loadView('invoice', ['invoice' => $invoice])->save("invoice-{$ref}.pdf", 's3');
 ```
 
 
@@ -77,13 +82,15 @@ It is simple to set options for the PDF.
 Just use the `setOption` or `setOptions` methods.
 
 ```php
-ChromePDF::loadHtml('<h1>Hello world</h1>')->setOption('scale', '0.2')->download();
+ChromePDF::loadHtml('<h1>Hello world</h1>')->setOption('scale', '0.2')->download('hello.pdf');
 ```
 
 Or set multiple options at once.
 
 ```php
-ChromePDF::loadHtml('<h1>More options here!</h1>')->setOptions(['scale', 0.2, 'landscape'])->download();
+ChromePDF::loadHtml('<h1>More options here!</h1>')
+    ->setOptions(['scale' => 0.2, 'landscape'])
+    ->download('options.pdf');
 ```
 <small>All available php-chrome-html2pdf [options](https://github.com/spiritix/php-chrome-html2pdf#options) are available.</small>
 
@@ -91,7 +98,7 @@ There are also a few helper methods, which can be chained.
 
 ```php
 ChromePDF::loadHtml('<h1>Hello world</h1>')
-    // a3 & a5 also available - pass true to set as landscape.
+    // a3 & a5 also available - pass true to set as landscape. Or use size('') and specify a different page size.
     ->a4()
     // Set the orientation as landscape - default is portrait.
     ->landscape()
