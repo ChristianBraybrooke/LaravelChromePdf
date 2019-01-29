@@ -1,0 +1,30 @@
+{
+    "name": "chrisbraybrooke/laravel-chrome-pdf",
+    "description": "A wrapper for Laravel around the spiritix/php-chrome-html2pdf libary",
+    "require": {
+        "laravel/framework": "^5.7",
+        "php": "^7.1",
+        "spiritix/php-chrome-html2pdf": "^1.2"
+    },
+    "authors": [
+        {
+            "name": "Christian Braybrooke",
+            "email": "chris@purplemountmedia.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "ChrisBraybrooke\\LaravelChromePdf\\": "src/"
+      }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ChrisBraybrooke\\LaravelChromePdf\\ServiceProvider"
+            ],
+            "aliases": {
+                "ChromePDF": "ChrisBraybrooke\\LaravelChromePdf\\Facades\\ChromePDF"
+            }
+        }
+    }
+}
