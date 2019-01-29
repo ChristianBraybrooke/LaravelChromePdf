@@ -48,3 +48,20 @@ class InvoicesController {
     }
 }
 ```
+
+## Options:
+
+It is simple to set options for the PDF.
+
+Just use the 'setOption' or 'setOptions' method.
+
+```sh
+ChromePDF::loadHtml('<h1>Hello world</h1>')->setOption('scale', '0.2')->download();
+```
+
+Or set multiple options at once.
+
+```sh
+ChromePDF::loadHtml('<h1>More options here!</h1>')->setOptions(['scale', 0.2, 'landscape'])->download();
+```
+All available php-chrome-html2pdf [options](https://github.com/spiritix/php-chrome-html2pdf#options) are available.
