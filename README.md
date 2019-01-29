@@ -1,5 +1,13 @@
 # Laravel PHP Chrome HTML to PDF
 
+## How it works
+
+This library is based on [puppeteer](https://github.com/GoogleChrome/puppeteer), a headless Chrome Node API which is maintained by the Chrome DevTools team.
+
+It provides a simple PHP / Laravel wrapper around the Node API, focused on generating beautiful PDF files.
+
+In contrast to other HTML to PDF converters like [wkhtmltopdf](https://wkhtmltopdf.org/), the corresponding PHP wrapper or similar libraries, it is based on a current Chrome version instead of outdated and unmaintained WebKit builds. This library therefore fully supports CSS3, HTML5, SVGs, SPAs, and all the other fancy stuff people use these days.
+
 ## Installation
 ```sh
 composer require chrisbraybrooke/laravel-chrome-pdf
@@ -8,7 +16,7 @@ composer require chrisbraybrooke/laravel-chrome-pdf
 ## Setup:
 **Laravel >=5.5**
 
-Laravel 5.5 and above uses package autodiscovery so you are **all done!**. Skip to [Usage](#usage).
+Laravel 5.5 and above uses package autodiscovery so you are **all done!** Skip to [Usage](#usage).
 
 **Laravel 5.5<**
 
