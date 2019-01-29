@@ -53,7 +53,7 @@ class InvoicesController {
 
 It is simple to set options for the PDF.
 
-Just use the 'setOption' or 'setOptions' method.
+Just use the `setOption` or `setOptions` method.
 
 ```sh
 ChromePDF::loadHtml('<h1>Hello world</h1>')->setOption('scale', '0.2')->download();
