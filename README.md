@@ -45,7 +45,7 @@ class InvoicesController {
         ChromePDF::loadView('invoice', ['invoice' => $invoice])
             ->size('a4')
             ->landscape()
-            ->download();
+            ->download("invoice-{$invoice->ref}.pdf");
     }
 }
 ```
@@ -108,3 +108,7 @@ ChromePDF::loadHtml('<h1>Hello world</h1>')
     ->footerView('default-footer')
     ->download();
 ```
+
+## Maintenance:
+
+My company [Purple Mountain](https://www.purplemountmedia.com) - A web development company in the UK, will try our best to keep this package up to date and free from any issues.
