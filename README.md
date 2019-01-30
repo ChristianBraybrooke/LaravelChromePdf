@@ -1,5 +1,12 @@
 # Laravel PHP Chrome HTML to PDF
 
+## Import note regarding git
+If you keep you vendor folder in source control - then you may want to consider placing the following in you `.gitignore` file. The reason for this is that the chromium rendering engine contains files that are larger than GitHubs 100mb limit.
+
+```sh
+/vendor/spiritix/php-chrome-html2pdf/node_modules/*
+```
+
 ## How it works
 
 This library is based on [puppeteer](https://github.com/GoogleChrome/puppeteer), a headless Chrome Node API which is maintained by the Chrome DevTools team.
