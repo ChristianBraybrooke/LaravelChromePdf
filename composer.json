@@ -5,7 +5,7 @@
         "illuminate/support": "5.5.x|5.6.x|5.7.x",
         "illuminate/filesystem": "5.5.x|5.6.x|5.7.x",
         "php": ">=7.0",
-        "spiritix/php-chrome-html2pdf": "^1.2"
+        "spiritix/php-chrome-html2pdf": "dev-master"
     },
     "keywords": ["laravel", "chrome", "pdf", "html", "php", "Html2Pdf", "html2pdf", "headless", "puppeteer"],
     "license": "MIT",
@@ -13,6 +13,12 @@
         {
             "name": "Christian Braybrooke",
             "email": "chris@purplemountmedia.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ChrisBraybrooke/php-chrome-html2pdf"
         }
     ],
     "autoload": {
