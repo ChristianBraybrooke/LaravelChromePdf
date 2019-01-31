@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "112b975ae1967a0885392a27ab5ea9fb",
+    "content-hash": "821c3b8ac826e73115bfbd66ca16491f",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -442,7 +442,7 @@
         },
         {
             "name": "spiritix/php-chrome-html2pdf",
-            "version": "dev-master",
+            "version": "dev-puppeteer-upgrade",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ChrisBraybrooke/php-chrome-html2pdf.git",
